@@ -4,7 +4,7 @@ on:
   push:
 
 env:
-  IMAGE_FQDN: ghcr.io/jodconverter/jodconverter-examples
+  IMAGE_FQDN: ghcr.io/ice-gb/jodconverter-examples
   BASE_VERSION: 0.1.6
 
 jobs:
@@ -27,7 +27,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
-          platforms: linux/amd64
+          platforms: linux/arm64
           push: false
           target: gui
           build-args: |
@@ -38,7 +38,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
-          platforms: linux/amd64
+          platforms: linux/arm64
           push: false
           target: rest
           build-args: |
@@ -50,7 +50,7 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         with:
           context: .
-          platforms: linux/amd64
+          platforms: linux/arm64
           target: rest
           build-args: |
             BASE_VERSION=${{ env.BASE_VERSION }}
@@ -63,7 +63,7 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         with:
           context: .
-          platforms: linux/amd64
+          platforms: linux/arm64
           target: gui
           build-args: |
             BASE_VERSION=${{ env.BASE_VERSION }}
