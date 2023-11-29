@@ -1,6 +1,10 @@
 ARG BASE_VERSION
 #  ----------------------------------  Base image
 FROM ghcr.io/ice-gb/jodconverter-runtime:$BASE_VERSION as jodconverter-app-base
+
+# add chinese font
+RUN apt-get update && apt-get install -y ttf-wqy-zenhei fonts-arphic-uming fonts-arphic-ukai hyphen-af hyphen-en-us fonts-dejavu fonts-dejavu-core fonts-dejavu-extra fonts-droid-fallback fonts-dustin fonts-f500 fonts-fanwood fonts-freefont-ttf fonts-liberation fonts-lmodern fonts-lyx fonts-sil-gentium fonts-texgyre fonts-tlwg-purisa fonts-opensymbol && fc-cache -f && rm -rf /var/lib/apt/lists/*
+
 ENV JAR_FILE_NAME=app.war
 ENV JAR_FILE_BASEDIR=/opt/app
 ENV LOG_BASE_DIR=/var/log
