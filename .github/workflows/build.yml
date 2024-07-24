@@ -4,7 +4,7 @@ on:
   push:
 
 env:
-  IMAGE_FQDN: ghcr.io/jodconverter/jodconverter-examples
+  IMAGE_FQDN: ghcr.io/ice-gb/jodconverter-examples
   BASE_VERSION: 0.1.8
 
 jobs:
